@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:sprint3/domain/use_case/controllers/navegacion_bar_controller.dart';
+import 'package:sprint3/ui/pages/ListaMensajes.dart';
 import 'package:sprint3/ui/pages/mi_estado_page.dart';
 import 'package:sprint3/ui/pages/chat_page.dart';
 import 'package:sprint3/ui/pages/home_page.dart';
@@ -23,6 +24,7 @@ class NavegacionBarPage extends StatelessWidget{
                   UbicacionPage(),
                   ChatPage(),
                   MiEstadoPage(),
+                  ListaMensajes(),
 
                 ],
               ),
@@ -41,6 +43,7 @@ class NavegacionBarPage extends StatelessWidget{
               _bottomNavigationBarItem(CupertinoIcons.sportscourt,'Explorar'),
               _bottomNavigationBarItem(CupertinoIcons.bell,'Chat'),
               _bottomNavigationBarItem(CupertinoIcons.person,'Mi Estado'),
+              _bottomNavigationBarItem(CupertinoIcons.person_2,'Mi Estado'),
             ],
           ),
         );

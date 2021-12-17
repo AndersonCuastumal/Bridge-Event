@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 // https://medium.com/teamartisans/bottom-navigation-bar-in-flutter-using-getx-a59f274b616c
 import 'package:flutter/material.dart';
@@ -6,11 +7,13 @@ import 'package:sprint3/ui/routes/app_pages.dart';
 import 'package:sprint3/ui/routes/app_routes.dart';
 import 'package:sprint3/ui/themes/app_theme.dart';
 
-
-
-void main() {
+Future<void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   @override
