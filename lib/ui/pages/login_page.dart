@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sprint3/ui/pages/register_page.dart';
 
 //import 'register_pages.dart';
 
@@ -72,12 +73,12 @@ class _LoginPageState extends State<LoginPage> {
   //contenedor de todos los elementos del login
   Widget _contenidoLogin(){
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 30),
+      margin: const EdgeInsets.symmetric(vertical: 30),
       height: 250,
       width: 420,
       decoration: BoxDecoration(
        // shape: BoxBorder(),
-        color: Color(0xAAF6A273),
+        color: const  Color(0xAAF6A273),
         borderRadius: BorderRadius.circular(20)
       ),
       child: Column(
@@ -92,11 +93,11 @@ class _LoginPageState extends State<LoginPage> {
 //texfiledUsuario
   Widget _textfieldUsuario(){
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 15,horizontal: 50),
+      padding: const  EdgeInsets.symmetric(vertical: 15,horizontal: 50),
      decoration: BoxDecoration(
-       color: Color(0xffFFF9F9),
+       color: const Color(0xffFFF9F9),
        //color: Colors.white,
-       boxShadow:<BoxShadow>[
+       boxShadow: const <BoxShadow>[
          BoxShadow(
             blurRadius: 5,
             spreadRadius: -2,
@@ -106,8 +107,8 @@ class _LoginPageState extends State<LoginPage> {
       
       borderRadius: BorderRadius.circular(20)
      ),
-      margin: EdgeInsets.symmetric(vertical: 20, horizontal:20 ),
-      child: TextField(
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal:20 ),
+      child: const  TextField(
         textAlign:TextAlign.start,
         style: TextStyle(
           fontStyle: FontStyle.italic,
@@ -125,11 +126,11 @@ class _LoginPageState extends State<LoginPage> {
 //texfiledPass
   Widget _textfieldPass(){
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 15,horizontal: 50),
+      padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 50),
      decoration: BoxDecoration(
-       color: Color(0xffFFF9F9),
+       color: const Color(0xffFFF9F9),
        //color: Colors.white,
-       boxShadow:<BoxShadow>[
+       boxShadow:const <BoxShadow>[
          BoxShadow(
             blurRadius: 5,
             spreadRadius: -2,
@@ -139,8 +140,8 @@ class _LoginPageState extends State<LoginPage> {
       
       borderRadius: BorderRadius.circular(20)
      ),
-      margin: EdgeInsets.symmetric(vertical: 20, horizontal:20 ),
-      child: TextField(
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal:20 ),
+      child: const TextField(
         textAlign:TextAlign.start,
         style: TextStyle(
           fontStyle: FontStyle.italic,
@@ -177,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
       decoration: BoxDecoration(
         color: Color(0xffED681E),
         borderRadius: BorderRadius.circular(20),
-        boxShadow: <BoxShadow>[
+        boxShadow:const  <BoxShadow>[
           BoxShadow(
             blurRadius: 5,
             spreadRadius:0,
@@ -187,7 +188,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
       child: TextButton(
         onPressed: (){}, 
-        child: Text('LOGIN', style: TextStyle(
+        child:const  Text('LOGIN', style: TextStyle(
           fontSize: 30,
           color: Colors.white
         )
@@ -202,13 +203,13 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       
       width: 160,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color:Colors.white70,
         borderRadius: BorderRadius.only(topLeft: Radius.circular(20),bottomRight:Radius.circular(20))
       ),
       child: TextButton(
         onPressed: ()=>_createAccount(context),
-        child:  Text('Crear Cuenta',
+        child: const  Text('Crear Cuenta',
         style: TextStyle(
           color: Colors.black87,
           fontSize: 20,
