@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "471338329412",
+    "firebase_url": "https://bridgeevent-cf3c1-default-rtdb.firebaseio.com",
+    "project_id": "bridgeevent-cf3c1",
+    "storage_bucket": "bridgeevent-cf3c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471338329412:android:26a90977f96ad825a2a311",
+        "android_client_info": {
+          "package_name": "com.example.sprint3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471338329412-l7570f06i28p4tmkq30heuvjr9jrrh9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-aw6FHhDxJtYTiwWO8-0ME1Kk5LURpKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471338329412-l7570f06i28p4tmkq30heuvjr9jrrh9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
