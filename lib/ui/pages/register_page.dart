@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RegisterAccount extends StatefulWidget {
@@ -9,6 +10,9 @@ class RegisterAccount extends StatefulWidget {
 }
 
 class _RegisterAccountState extends State<RegisterAccount> {
+
+  
+
   final estilo = const TextStyle(
     fontSize: 20,
     fontStyle: FontStyle.italic,
@@ -16,11 +20,12 @@ class _RegisterAccountState extends State<RegisterAccount> {
   );
 
   final formkey = new GlobalKey<FormState>();
-
-  late String usuario;
-  late String nombres;
-  late String correo;
-  late String contrasena;
+ 
+   String? nombres;
+   String? correo;
+   String? usuario;
+   String? contrasena;
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +35,7 @@ class _RegisterAccountState extends State<RegisterAccount> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pop(context),
         backgroundColor: Colors.white,
-        child: Icon(Icons.arrow_back_ios_new, color: Colors.black, size: 30),
+        child: const Icon(Icons.arrow_back_ios_new, color: Colors.black, size: 30),
         tooltip: 'Regresar',
       ),
     );
@@ -84,6 +89,8 @@ class _RegisterAccountState extends State<RegisterAccount> {
     );
   }
 
+
+
   Widget _contenedorRegistro() {
     return Container(
         width: 420,
@@ -95,10 +102,10 @@ class _RegisterAccountState extends State<RegisterAccount> {
           key: formkey,
           child: Column(
             children: <Widget>[
-              _textformfield(data: 'Usuario', icon: Icons.account_circle),//usuario
-              _textformfield(data: 'Nombre', icon: Icons.person),//nombre
-              _textformfield(data: 'E-Mail', icon: Icons.email_outlined),//coreo
-              _textformfield(data: 'Contraseña', icon: Icons.lock),//contraseña
+              _textformfieldUser(),//usuario
+              _textformfieldNombre(),//nombre
+              _textformfieldCorreo( ),//correo
+              _textformfieldPass(),//contraseña
              
             ],
           ),
@@ -106,7 +113,9 @@ class _RegisterAccountState extends State<RegisterAccount> {
     );
   }
 
-  Widget _textformfield({required String? data, IconData? icon}) {
+
+
+   Widget _textformfieldUser() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
       padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
@@ -121,12 +130,113 @@ class _RegisterAccountState extends State<RegisterAccount> {
         style: estilo,
         decoration: InputDecoration(
             hintStyle:estilo,
-            hintText: data,
-            icon: Icon(icon, size: 35)
+            hintText: 'Usuario',
+            icon: const Icon(Icons.account_circle, size: 35)
         ),
+        validator: (value){
+          if(value!.isEmpty){
+            return 'Casilla obligatoria';
+          }
+        },
+        onSaved: (value){
+          usuario=value;
+        },
       ),
     );
   }
+
+   Widget _textformfieldCorreo() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: const <BoxShadow>[
+            BoxShadow(
+                blurRadius: 10.0, spreadRadius: -1, offset: Offset(2.0, 3.0))
+          ]),
+      child: TextFormField(
+        style: estilo,
+        decoration: InputDecoration(
+            hintStyle:estilo,
+            hintText: 'E-Mail',
+            icon: const Icon(Icons.email_outlined, size: 35)
+        ),
+        validator: (value){
+          if(value!.isEmpty){
+            return 'Casilla obligatoria';
+          }
+        },
+        onSaved: (value){
+          correo=value;
+        },
+      ),
+    );
+  }
+
+   Widget _textformfieldNombre() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: const <BoxShadow>[
+            BoxShadow(
+                blurRadius: 10.0, spreadRadius: -1, offset: Offset(2.0, 3.0))
+          ]),
+      child: TextFormField(
+        style: estilo,
+        decoration: InputDecoration(
+            hintStyle:estilo,
+            hintText: 'Nombre',
+            icon: const Icon(Icons.person, size: 35)
+        ),
+        validator: (value){
+          if(value!.isEmpty){
+            return 'Casilla obligatoria';
+          }
+        },
+        onSaved: (value){
+          nombres=value;
+        },
+      ),
+    );
+  }
+
+   Widget _textformfieldPass() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: const <BoxShadow>[
+            BoxShadow(
+                blurRadius: 10.0, spreadRadius: -1, offset: Offset(2.0, 3.0))
+          ]),
+      child: TextFormField(
+        style: estilo,
+        decoration: InputDecoration(
+            hintStyle:estilo,
+            hintText: 'Contraseña',
+            icon: const Icon( Icons.lock, size: 35)
+        ),
+        validator: (value){
+          if(value!.isEmpty){
+            return 'Casilla obligatoria';
+          }
+        },
+        onSaved: (value){
+          contrasena=value;
+        },
+      ),
+    );
+  }
+
+
+
 
   Widget _botonRegistro(){
     return Container(
@@ -144,7 +254,9 @@ class _RegisterAccountState extends State<RegisterAccount> {
         ]
       ),
       child: TextButton(
-        onPressed: (){},
+        onPressed: (){
+          _validar();
+        },
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: const  <Widget>[
@@ -167,6 +279,14 @@ class _RegisterAccountState extends State<RegisterAccount> {
         // ) ,
       ),
     );
+  }
+
+// aqui validamos que los campos no esten vacios
+  void _validar() {
+    if(formkey.currentState!.validate()){
+      formkey.currentState!.save();
+      formkey.currentState!.reset();
+    }
   }
 
 
