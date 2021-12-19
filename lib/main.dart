@@ -10,7 +10,9 @@ import 'package:sprint3/ui/routes/app_pages.dart';
 import 'package:sprint3/ui/routes/app_routes.dart';
 import 'package:sprint3/ui/themes/app_theme.dart';
 
-void main() {
+Future <void> main() async{
+   WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
   runApp(MyApp());
 }
 
