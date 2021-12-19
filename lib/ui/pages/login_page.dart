@@ -19,7 +19,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
- 
+ FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Future  initState()async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
   }
 
-    FirebaseAuth auth = FirebaseAuth.instance;
+    
 
   @override
   Widget build(BuildContext context) {
