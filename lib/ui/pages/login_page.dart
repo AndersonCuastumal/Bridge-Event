@@ -1,9 +1,13 @@
 
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sprint3/ui/pages/register_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
 
 //import 'register_pages.dart';
 
@@ -15,7 +19,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+ 
+  @override
+  Future  initState()async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+    super.initState();
+  }
 
+    FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
