@@ -38,6 +38,12 @@ dependencies:
   firebase_core:
   firebase_database:
   intl:
+
+  firebase_auth:
+
+
+  url_launcher:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

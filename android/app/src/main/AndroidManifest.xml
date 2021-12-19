@@ -1,6 +1,8 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sprint3">
-   <application
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.sprint3">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"   />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"   />
+
+<application
         android:label="sprint3"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,125 +1,65 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:sprint3/ui/pages/login_page.dart';
+import 'package:sprint3/ui/pages/navegacion_bar_page.dart';
 
-class LoginController extends GetxController{
+class Service {
+  final auth=FirebaseAuth.instance;
+  //Funcion Crear Usuario
+  void CreateUser(context,email,password) async {
+    try{
+      await auth.createUserWithEmailAndPassword(email: email, password: password).then((value) =>
+      {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>NavegacionBarPage())),
 
-  final FirebaseAuth _auth=FirebaseAuth.instance;
-  final formKey=GlobalKey<FormState>();
-  final emailController=TextEditingController();
-  final contrasenaController=TextEditingController();
+      });
+    }
+    catch (e){
+      errorbox(context,e);
+    }
+  }
 
-  //code para ingresar con email y contraseña
-void signInWithEmailAndPasword() async{
-  try{
-    final User? user=(await _auth.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: contrasenaController.text,
-    ))
-        .user;
-    Get.snackbar('hola','Su ingresa ha sido exitoso');
-    print('Ingreso bien');
-    Future.delayed(
-      Duration(seconds:2),
-        (){
-        Get.toNamed("/ agrear pagina home");
-        },
-    );
-  }catch(e){
-    Get.snackbar('Fallo','No puede ingresar, revise',snackPosition:SnackPosition.BOTTOM);
+  //mensaje de error
+  void errorbox(context,e){
+    showDialog(context: context, builder: (context){
+      return AlertDialog(
+          title: Text('Error'),
+          content: Text(e.toString())
+      );
+
+    });
 
   }
-}
 
-//Inicio sesion con google
+  //login
+  void LoginUser(context,email,password) async {
+    try{
+      await auth.signInWithEmailAndPassword(email: email, password: password).then((value) =>
+      {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>NavegacionBarPage())),
 
-  static Future<User?> signInWithGoogle({required BuildContext context}) async {
-      FirebaseAuth auth = FirebaseAuth.instance;
-      User? user;
+      });
+    }
+    catch (e){
+      errorbox(context,e);
+    }
+  }
 
-      if (kIsWeb) {
-        GoogleAuthProvider authProvider = GoogleAuthProvider();
+  //reset
+  void resetPassword(context,email) async {
+    try{
+      await auth.sendPasswordResetEmail(email: email).then((value) =>
+      {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()))
 
-        try {
-          final UserCredential userCredential =
-          await auth.signInWithPopup(authProvider);
+      });
+    } catch(e){
+      errorbox(context, e);
+    }
 
-          user = userCredential.user;
-        } catch (e) {
-          print(e);
-        }
-      } else {
-        final GoogleSignIn googleSignIn = GoogleSignIn();
-
-        final GoogleSignInAccount? googleSignInAccount =
-        await googleSignIn.signIn();
-
-        if (googleSignInAccount != null) {
-          final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount.authentication;
-
-          final AuthCredential credential = GoogleAuthProvider.credential(
-            accessToken: googleSignInAuthentication.accessToken,
-            idToken: googleSignInAuthentication.idToken,
-          );
-
-          try {
-            final UserCredential userCredential =
-            await auth.signInWithCredential(credential);
-
-            user = userCredential.user;
-          } on FirebaseAuthException catch (e) {
-            if (e.code == 'account-exists-with-different-credential') {
-              ScaffoldMessenger.of(context).showSnackBar(
-                LoginController.customSnackBar(
-                  content:
-                  'The account already exists with a different credential.',
-                ),
-              );
-            }
-            else if (e.code == 'invalid-credential') {
-              ScaffoldMessenger.of(context).showSnackBar(
-                LoginController.customSnackBar(
-                  content:
-                  'Error occurred while accessing credentials. Try again.',
-                ),
-              );
-            }
-          } catch (e) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              LoginController.customSnackBar(
-                content: 'Error occurred using Google Sign-In. Try again.',
-              ),
-            );
-          }
-        }
-        return user;
-      }
 
   }
-  static SnackBar customSnackBar({required String content}) {
-    return SnackBar(
-      backgroundColor: Colors.black,
-      content: Text(
-        content,
-        style: TextStyle(color: Colors.redAccent, letterSpacing: 0.5),
-      ),
-    );
-  }
-  static Future<FirebaseApp> initializeFirebase({
-    required BuildContext context,
-  }) async {
-    FirebaseApp firebaseApp = await Firebase.initializeApp();
-
-    User? user = FirebaseAuth.instance.currentUser;
 
 
-
-    return firebaseApp;
-  }
 
 }
