@@ -1,7 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 // https://medium.com/teamartisans/bottom-navigation-bar-in-flutter-using-getx-a59f274b616c
-import 'package:flutter/material.dart';
+//https://blog.codemagic.io/firebase-authentication-google-sign-in-using-flutter/
+//https://www.youtube.com/watch?v=n4SHjuub4ss
+//https://github.com/EjemplosMisionTic2022
+
+
 import 'package:get/get.dart';
 import 'package:sprint3/ui/routes/app_pages.dart';
 import 'package:sprint3/ui/routes/app_routes.dart';
@@ -19,6 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+
       initialRoute: AppRoutes.DASHBOARD,
       getPages: AppPages.list,
       debugShowCheckedModeBanner: false,

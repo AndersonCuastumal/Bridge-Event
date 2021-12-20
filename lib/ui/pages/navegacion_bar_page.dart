@@ -8,6 +8,7 @@ import 'package:sprint3/ui/pages/ListaMensajes.dart';
 import 'package:sprint3/ui/pages/mi_estado_page.dart';
 import 'package:sprint3/ui/pages/chat_page.dart';
 import 'package:sprint3/ui/pages/home_page.dart';
+import 'package:sprint3/ui/pages/publicaciones_page.dart';
 import 'package:sprint3/ui/pages/ubicacion_page.dart';
 
 class NavegacionBarPage extends StatelessWidget{
@@ -25,6 +26,7 @@ class NavegacionBarPage extends StatelessWidget{
                   ChatPage(),
                   MiEstadoPage(),
                   ListaMensajes(),
+                  DashboardScreen(),
 
                 ],
               ),
@@ -43,7 +45,8 @@ class NavegacionBarPage extends StatelessWidget{
               _bottomNavigationBarItem(CupertinoIcons.sportscourt,'Explorar'),
               _bottomNavigationBarItem(CupertinoIcons.bell,'Chat'),
               _bottomNavigationBarItem(CupertinoIcons.person,'Mi Estado'),
-              _bottomNavigationBarItem(CupertinoIcons.person_2,'Mi Estado'),
+              _bottomNavigationBarItem(CupertinoIcons.person_2,'chat2'),
+              _bottomNavigationBarItem(CupertinoIcons.person_2,'publicacion'),
             ],
           ),
         );
