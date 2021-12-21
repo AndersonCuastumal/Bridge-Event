@@ -7,6 +7,7 @@
   - El usuario inicia sesion usando correo y contraseña valida
 2. Registro
   - El usuario se registra usando correo "ejemplo.1@gmail.com" y contraseña
+  
 ## Estados Servicios App
  Navegacion bottom bar
     -- Es el tipo de navegacion que le permite al usuario navegar por los servicios o estados prestados por la app BrigeEvent
@@ -20,3 +21,7 @@
     -- El usuario crea un evento agregando un titulo y una breve descripcion.
   - Actualizar evento
     -- Al dar click sobre mis eventos, se desplegara un estado de edicion o eliminacion del evento.
+
+## Enlace Apk Release
+
+https://drive.google.com/drive/u/1/folders/1edTTL9eJEQgSeAdsZYSaZTahjAtCrCGe
