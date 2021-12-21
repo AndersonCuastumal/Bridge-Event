@@ -18,7 +18,7 @@
   - Estado Mis Eventos
     -- El usuario puede visualizar sus eventos publicados ademas puede crear nuevos eventos
   - Crear Evento
-    -- El usuario crea un evento agregando un titulo y una breve descripcion.
+    -- El usuario crea un evento al dar click sobre el boton flotante y diligenciar el formulario ingresando el titulo y una breve descripcion del evento.
   - Actualizar evento
     -- Al dar click sobre mis eventos, se desplegara un estado de edicion o eliminacion del evento.
 
