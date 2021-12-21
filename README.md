@@ -24,4 +24,4 @@
 
 ## Enlace Apk Release
 
-https://drive.google.com/drive/u/1/folders/1edTTL9eJEQgSeAdsZYSaZTahjAtCrCGe
+https://drive.google.com/file/d/1IZUc3U5fgBwW4EmO5JxLsFmz2SFEsCwh/view?usp=sharing
