@@ -4,15 +4,13 @@ import 'package:flutter/material.dart';
 //https://blog.codemagic.io/firebase-authentication-google-sign-in-using-flutter/
 //https://www.youtube.com/watch?v=n4SHjuub4ss
 //https://github.com/EjemplosMisionTic2022
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sprint3/ui/routes/app_pages.dart';
 import 'package:sprint3/ui/routes/app_routes.dart';
 import 'package:sprint3/ui/themes/app_theme.dart';
-
-Future <void> main() async{
-   WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp();
+Future<void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 

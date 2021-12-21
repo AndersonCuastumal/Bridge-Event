@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sprint3/domain/use_case/firestore/fire_registerpage.dart';
 
 class RegisterAccount extends StatefulWidget {
   RegisterAccount({Key? key}) : super(key: key);
@@ -283,11 +283,29 @@ class _RegisterAccountState extends State<RegisterAccount> {
 
 // aqui validamos que los campos no esten vacios
   void _validar() {
+    bool verficar=false;
     if(formkey.currentState!.validate()){
       formkey.currentState!.save();
-      formkey.currentState!.reset();
+     AddUser add= AddUser(nombre: nombres,usuario: usuario,email: correo, contrasena: contrasena);
+     add.addUser();
+     formkey.currentState!.reset();
+    //  FutureBuilder(
+    //    future: add.addUser(),
+    //    builder: (BuildContext context, AsyncSnapshot snapshot){
+    //      if(snapshot.connectionState==ConnectionState.done){
+    //       verficar=true;
+    //     //  return snapshot.data;
+    //      }else if(snapshot.hasError ) {
+    //        print('error');
+    //      }
+        
+    //      return snapshot.data;
+    //    }
+    //  );
+       
     }
   }
 
+ 
 
 }

@@ -1,11 +1,13 @@
 
 
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sprint3/ui/pages/register_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
+import 'navegacion_bar_page.dart';
+
 
 
 
@@ -19,10 +21,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
- FirebaseAuth auth = FirebaseAuth.instance;
-  
 
-    
+  String usuario='123';
+  String contrasena='123';
+  final usuEditingController=TextEditingController();
+  final passEditingController=TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -115,13 +119,14 @@ class _LoginPageState extends State<LoginPage> {
       borderRadius: BorderRadius.circular(20)
      ),
       margin: const EdgeInsets.symmetric(vertical: 20, horizontal:20 ),
-      child: const  TextField(
+      child:   TextField(
+        controller: usuEditingController,
         textAlign:TextAlign.start,
-        style: TextStyle(
+        style: const TextStyle(
           fontStyle: FontStyle.italic,
           fontSize: 25
         ),
-        decoration: InputDecoration(
+        decoration:const  InputDecoration(
          // contentPadding:EdgeInsets.symmetric(vertical: 10),
           icon: Icon(Icons.account_circle_outlined, size:37 ),
           hintText: 'Usuario'
@@ -148,13 +153,14 @@ class _LoginPageState extends State<LoginPage> {
       borderRadius: BorderRadius.circular(20)
      ),
       margin: const EdgeInsets.symmetric(vertical: 20, horizontal:20 ),
-      child: const TextField(
+      child:  TextField(
+        controller: passEditingController,
         textAlign:TextAlign.start,
-        style: TextStyle(
+        style: const TextStyle(
           fontStyle: FontStyle.italic,
           fontSize: 25
         ),
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
          // contentPadding:EdgeInsets.symmetric(vertical: 10),
           icon: Icon(Icons.lock, size:37 ),
           hintText: 'Contraseña'
@@ -195,7 +201,12 @@ class _LoginPageState extends State<LoginPage> {
       ),
       child: TextButton(
         onPressed: (){
-          
+          if(usuEditingController.text==usuario && passEditingController.text == contrasena ){
+            final rout=MaterialPageRoute(builder: (context){
+              return NavegacionBarPage();
+            });
+            Navigator.push(context, rout);
+          };
         }, 
         child:const  Text('LOGIN', style: TextStyle(
           fontSize: 30,
