@@ -1,16 +1,27 @@
 # sprint3
 
-A new Flutter project.
+## App Bridge-Event
 
-## Getting Started
+## Estados SignUp y SignIn
+1. Login
+  - El usuario inicia sesion usando correo y contraseña valida
+2. Registro
+  - El usuario se registra usando correo "ejemplo.1@gmail.com" y contraseña
+  
+## Estados Servicios App
+ Navegacion bottom bar
+    -- Es el tipo de navegacion que le permite al usuario navegar por los servicios o estados prestados por la app BrigeEvent
+  - Estado Eventos
+    --Se encuentran todos los eventos publicados por todos los usuarios
+  - Estado Chat
+    --Incompleto
+  - Estado Mis Eventos
+    -- El usuario puede visualizar sus eventos publicados ademas puede crear nuevos eventos
+  - Crear Evento
+    -- El usuario crea un evento al dar click sobre el boton flotante y diligenciar el formulario ingresando el titulo y una breve descripcion del evento.
+  - Actualizar evento
+    -- Al dar click sobre mis eventos, se desplegara un estado de edicion o eliminacion del evento.
 
-This project is a starting point for a Flutter application.
+## Enlace Apk Release
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://drive.google.com/file/d/1IZUc3U5fgBwW4EmO5JxLsFmz2SFEsCwh/view?usp=sharing
