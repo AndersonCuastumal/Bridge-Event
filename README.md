@@ -22,7 +22,7 @@
   - Actualizar evento
     -- Al dar click sobre mis eventos, se desplegara un estado de edicion o eliminacion del evento.
 ## Drive
-https://drive.google.com/drive/u/1/folders/1yz12QFoZ0ou5X8Y80vVoOdF1EhvGWcPL
+https://drive.google.com/drive/folders/1yz12QFoZ0ou5X8Y80vVoOdF1EhvGWcPL?usp=sharing
 
 ## Enlace Apk Release
 
